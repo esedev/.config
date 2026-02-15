@@ -1,0 +1,9 @@
+*
+!.gitignore
+!README.org
+
+!terminator
+!terminator/**
+
+!tmux
+!tmux/**

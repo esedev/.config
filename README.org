@@ -1,0 +1,7 @@
+* About
+A collection of GNU/linux configuration files.
+* Install
+#+begin_src shell
+cd ~/.config
+git clone https://github.com/esedev/.config.git .
+#+end_src
