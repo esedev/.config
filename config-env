@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export EDITOR=mtt-editor
+
+if [ -f $HOME/.bash_profile ]; then
+    alias refresh-profile='source $HOME/.bash_profile'
+else
+    alias refresh-profile='source $HOME/.profile'
+fi
