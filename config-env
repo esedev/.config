@@ -7,3 +7,11 @@ if [ -f $HOME/.bash_profile ]; then
 else
     alias refresh-profile='source $HOME/.profile'
 fi
+
+case ":${PATH}:" in
+    *:"$HOME/.local/bin":*)
+        ;;
+    *)
+        export PATH="$PATH:$HOME/.local/bin"
+        ;;
+esac

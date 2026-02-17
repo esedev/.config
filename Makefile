@@ -3,11 +3,11 @@
 all: upgrade
 
 install: upgrade
-	@echo "TODO: add to ~/.bashrc '. \"$HOME/.config/config-env\"'"
+	@echo "TODO: add to ~/.bashrc '. \"\$$HOME/.config/config-env\"'"
 
 uninstall:
 	rm -f $(HOME)/.local/bin/mtt-editor
-	@echo "TODO: remove from ~/.bashrc '. \"$HOME/.config/config-env\"'"
+	@echo "TODO: remove from ~/.bashrc '. \"\$$HOME/.config/config-env\"'"
 
 upgrade:
 	mkdir -p $(HOME)/.local/bin
