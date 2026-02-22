@@ -1,6 +1,8 @@
 #!/bin/sh
 
-export EDITOR=mtt-editor
+export VISUAL=mtt-editor
+export EDITOR="$VISUAL"
+alias edit=mtt-editor
 
 if [ -f $HOME/.bash_profile ]; then
     alias refresh-profile='source $HOME/.bash_profile'
@@ -15,3 +17,40 @@ case ":${PATH}:" in
         export PATH="$PATH:$HOME/.local/bin"
         ;;
 esac
+
+# RUST
+if command -v rustc 2>&1 >/dev/null; then
+    RUSTC_LIBRARY_PATH=$(rustc --print=target-libdir)
+    if ! [[ "$LD_LIBRARY_PATH" =~ "$RUSTC_LIBRARY_PATH" ]]
+    then
+        if [ -z "${LD_LIBRARY_PATH}" ]
+        then
+            LD_LIBRARY_PATH="$RUSTC_LIBRARY_PATH"
+        else
+            LD_LIBRARY_PATH="$RUSTC_LIBRARY_PATH:$LD_LIBRARY_PATH"
+        fi
+    fi
+    export LD_LIBRARY_PATH
+    export CROSS_ROOTLESS_CONTAINER_ENGINE=1 # use podman for cross build
+fi
+
+if command -v static-web-server 2>&1 >/dev/null ; then
+    alias shttp='env SERVER_ROOT=./ static-web-server -p 8008 -z "$@"'
+fi
+
+# MISC
+if command -v mise 2>&1 >/dev/null ; then
+    eval "$(mise activate bash)"
+fi
+if command -v exiv2 2>&1 >/dev/null; then
+    alias exiv='exiv2'
+fi
+if command -v zeditor 2>&1 >/dev/null ; then
+    alias code='zeditor'
+fi
+if command -v zed 2>&1 >/dev/null ; then
+    alias code='zed'
+fi
+
+# FUNNY
+alias wttr='curl wttr.in | tee $SG_SHELF_DIR/weather.txt'

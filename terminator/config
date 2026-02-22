@@ -1,4 +1,13 @@
 [global_config]
+  handle_size = 0
+  borderless = True
+  extra_styling = False
+  tab_position = hidden
+  scrollbar_position = hidden
+  sticky = True
+  inactive_bg_color_offset = 0.9092105263157895
+  title_at_bottom = True
+  new_tab_after_current_tab = True
 [keybindings]
   switch_to_tab_1 = <Alt>1
   switch_to_tab_2 = <Alt>2
@@ -24,4 +33,38 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
+      command = ""
+  [[main]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 26:23
+      maximised = False
+      fullscreen = False
+      size = 1536, 592
+      title = /bin/bash
+      last_active_term = c7fdaaa8-bf3d-4871-8439-9a3f6c0efcbb
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 566
+      ratio = 0.36969301110385366
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 4b1bc49f-eaf5-4830-9c89-bece00735ca4
+      command = ""
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = c7fdaaa8-bf3d-4871-8439-9a3f6c0efcbb
+      command = ""
 [plugins]
