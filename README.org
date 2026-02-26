@@ -1,7 +1,12 @@
 * About
 A collection of GNU/linux configuration files.
 * Install
++ clone repository
 #+begin_src shell
 cd ~/.config
 git clone https://github.com/esedev/.config.git .
+#+end_src
++ run then command to add a line to the '~/.bashrc'
+#+begin_src shell
+echo ". \$HOME/.config/config-env" >> ~/.bashrc
 #+end_src
